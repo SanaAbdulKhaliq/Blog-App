@@ -4,7 +4,8 @@ import axios from 'axios';
 import useUser from '../Hooks/useUser';
 import moment from 'moment';
 import UpdateModal from '../Components/UpdateModel';
-
+import { Link } from 'react-router-dom';
+  
 const MyPosts = () => {
   const [posts, setPosts] = useState([]);
   const [categories, setCategories] = useState([]);
@@ -116,6 +117,9 @@ const MyPosts = () => {
                     <p className='my-1'>
                       <span className='font-semibold text-[18px]'>Date:</span> {moment(post.timestamp).format('MMM Do YYYY')}
                     </p>
+                    <div className='mt-6'>
+                      <Link to={`/post-details/${post._id}`} className='bg-black text-white py-2 px-4 rounded-lg shadow-md hover:underline'>Read More</Link>
+                    </div>
                     <div className='flex gap-2 mt-4'>
                       <button
                         onClick={() => handleEditClick(post)}
