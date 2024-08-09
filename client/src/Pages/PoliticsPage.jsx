@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Topbar from '../Components/Topbar'
 import axios from 'axios';
 import moment from 'moment';
+import { Link } from 'react-router-dom';
 
 const PoliticsPage = () => {
   const [posts, setPosts] = useState([]);
@@ -76,6 +77,9 @@ const PoliticsPage = () => {
                   <p className='my-1'>
                     <span className='font-semibold text-[18px]'>Date:</span> {moment(post.timestamp).format("MMM Do YYYY")}
                   </p>
+                  <div className='mt-6'>
+                    <Link to={`/post-details/${post._id}`} className='bg-black text-white py-2 px-4 rounded-lg shadow-md hover:underline'>Read More</Link>
+                  </div>
                 </div>
               ))}
             </div>
